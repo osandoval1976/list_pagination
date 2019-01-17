@@ -17,9 +17,7 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/let list = document.getElementsByTagName('li');
    let page = 1;
-   const pageOne = document.createElement('div');
-   pageOne.classList.add('.pagination')
-   document.body.appendChild(pageOne);
+   
    /*** 
    Create the `showPage` function to hide all of the items in the 
    list except for the ten you want to show.
@@ -35,16 +33,16 @@ FSJS project 2 - List Filter and Pagination
        "invoke" the function 
 ***/
 const showPage = (list, page) => {
-   const higher = page * 10;
+  const higher = page * 10;
   const lower = higher - 10;
-  for(let i =0; i > list.length; i++){
-    if(list[i] <= lower || list[i] >= higher){
+  for(let i =0; i < list.length; i++){
+    if(i < lower || i >= higher){
     list[i].style.display ='none';
   }else {
     list[i].style.display ='block';
-    
+    console.log(i)
   }
-  return list();
+  
 }
           
 }       
@@ -53,9 +51,23 @@ const showPage = (list, page) => {
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons
 ***/
-
-
-
-
-
+const pageOne = document.createElement('div');
+   pageOne.classList.add('pagination');
+   document.body.appendChild(pageOne);
+  
+   const listTwo = document.createElement('ul');
+  pageOne.appendChild(listTwo);
+   
+  function listItems(){
+    for( i = 0; i <= 6; i = i + 1 ){
+    const listThree = document.createElement('li');             // create a new li element
+                                                                // .textContent is mush shorter than creating a textNode
+    listTwo.appendChild(listThree);
+  }
+}
+listItems();
+  
+const appendPageLinks = () =>{
+  
+}
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
