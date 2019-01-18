@@ -40,7 +40,7 @@ const showPage = (list, page) => {
     list[i].style.display ='none';
   }else {
     list[i].style.display ='block';
-    console.log(i)
+   
   }
   
 }
@@ -52,22 +52,47 @@ const showPage = (list, page) => {
    functionality to the pagination buttons
 ***/
 const pageOne = document.createElement('div');
-   pageOne.classList.add('pagination');
-   document.body.appendChild(pageOne);
-  
-   const listTwo = document.createElement('ul');
-  pageOne.appendChild(listTwo);
+     document.body.appendChild(pageOne);
+     pageOne.classList.add('pagination');
+     const listTwo = document.createElement('ul');
+     pageOne.appendChild(listTwo);
+  for (let i=0; i<6; i++){ 
+     const button = document.createElement('button');
+     button.textContent='clicked';
+     listTwo.appendChild(button);
+       
    
-  function listItems(){
-    for( i = 0; i <= 6; i = i + 1 ){
-    const listThree = document.createElement('li');             // create a new li element
-                                                                // .textContent is mush shorter than creating a textNode
-    listTwo.appendChild(listThree);
-  }
+   const listThree = document.createElement('li');
+   const addAnchor = document.createElement('a');
+   addAnchor.setAttribute('href',"#");
+   addAnchor.textContent =  "";
+   button.appendChild(listThree);
+   listThree.appendChild(addAnchor);
+   
+   
 }
-listItems();
+   const addClass = document.querySelector('a');
+   addClass.className ='active';
+    
+   
+   
+   const appendPageLinks = (list) =>{
+   showPage();
+   showpage = 10;
+   const numberItems =54;
+   const totalPages = numberItems/showpage;
+   pages =totalPages;
+
+   button.innerHTML=pages;
+   }
+
+   
+
+   
+
+   
   
-const appendPageLinks = () =>{
+
+
   
-}
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
