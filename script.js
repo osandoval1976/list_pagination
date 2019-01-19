@@ -51,42 +51,69 @@ const showPage = (list, page) => {
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons
 ***/
-const pageOne = document.createElement('div');
-     document.body.appendChild(pageOne);
+    const appendPageLinks = (list) =>{
+    
+      let pages='';
+    const pagesCounts= list.length / 10 + 1;
+    for(let i=1; i< pagesCounts.length; i++){
+    pages= '<a>i</a>';
+     }
+     
+    let newDiv = document.getElementsByClassName('page');
+    let pageOne = document.createElement('div');
+    const textNod = document.createTextNode(''); 
+     newDiv.appendChild(pageOne);
+     pageOne.appendChild(textNod);
      pageOne.classList.add('pagination');
+     
      const listTwo = document.createElement('ul');
      pageOne.appendChild(listTwo);
-  for (let i=0; i<6; i++){ 
+     
+     for (let i=1; i<7; i++){ 
      const button = document.createElement('button');
-     button.textContent='clicked';
+     button.textContent='';
      listTwo.appendChild(button);
-       
+        
    
-   const listThree = document.createElement('li');
-   const addAnchor = document.createElement('a');
-   addAnchor.setAttribute('href',"#");
-   addAnchor.textContent =  "";
-   button.appendChild(listThree);
-   listThree.appendChild(addAnchor);
+     const listThree = document.createElement('li');
+      const addAnchor = document.createElement('a');
+
+      const textPages = document.createTextNode(i);  
+      addAnchor.setAttribute('href', i);
+      addAnchor.textContent = '';
+      addAnchor.appendChild(textPages);
+      button.appendChild(listThree);
+      listThree.appendChild(addAnchor);
+  
+   
+     
+     }
+      const addClass = document.querySelector('a');
+     addClass.className ='active';
    
    
-}
-   const addClass = document.querySelector('a');
-   addClass.className ='active';
+     showPage();
+   
+     const anchorOne = document.getElementsByTagName('a').href=i;
+     anchorOne.addEventListener ('click', (e)=> {
+     if (e.target.tagName === 'a'){
+      showPage = pages.style.display='none';
+      }else{
+      showPage= pages.style.display='block';
+
+     }
+
     
-   
-   
-   const appendPageLinks = (list) =>{
-   showPage();
-   showpage = 10;
-   const numberItems =54;
-   const totalPages = numberItems/showpage;
-   pages =totalPages;
+           });
+           
+           return list;
+          }
+        
+        
 
-   button.innerHTML=pages;
-   }
-
-   
+    
+    
+    
 
    
 
