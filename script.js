@@ -58,11 +58,13 @@ const showPage = (list, page) => {
     for(let i=1; i< pagesCounts.length; i++){
     pages= '<a>i</a>';
      }
-     
-    let newDiv = document.getElementsByClassName('page');
-    let pageOne = document.createElement('div');
+    
+    let oneDiv = document.getElementsByClassName('page');
+    let newDiv = document.createElement('div');
     const textNod = document.createTextNode(''); 
-     newDiv.appendChild(pageOne);
+    
+  
+     oneDiv.appendChild(newDiv);
      pageOne.appendChild(textNod);
      pageOne.classList.add('pagination');
      
@@ -87,11 +89,11 @@ const showPage = (list, page) => {
   
    
      
-     }
+     
       const addClass = document.querySelector('a');
      addClass.className ='active';
-   
-   
+    
+     }
      showPage();
    
      const anchorOne = document.getElementsByTagName('a').href=i;
