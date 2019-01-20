@@ -51,67 +51,58 @@ const showPage = (list, page) => {
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons
 ***/
-    const appendPageLinks = (list) =>{
-    
-      let pages='';
-    const pagesCounts= list.length / 10 + 1;
-    for(let i=1; i< pagesCounts.length; i++){
-    pages= '<a>i</a>';
-     }
-    
-    let oneDiv = document.getElementsByClassName('page');
-    let newDiv = document.createElement('div');
-    const textNod = document.createTextNode(''); 
-    
-  
-     oneDiv.appendChild(newDiv);
-     pageOne.appendChild(textNod);
-     pageOne.classList.add('pagination');
+    const appendPageLinks = () =>{
+   
+     let newLocal = document.getElementsByClassName("page")[0];
+     let newDiv = document.createElement('div');
+     let textNod = document.createTextNode(''); 
+     newLocal.appendChild(newDiv);
+     newDiv.appendChild(textNod);
+     newDiv.classList.add('pagination');
      
      const listTwo = document.createElement('ul');
-     pageOne.appendChild(listTwo);
+     newDiv.appendChild(listTwo);
      
-     for (let i=1; i<7; i++){ 
+     for (let i=1; i< 7; i++){ 
+      const listThree = document.createElement('li');
+      const addAnchor = document.createElement('a');
+
      const button = document.createElement('button');
      button.textContent='';
-     listTwo.appendChild(button);
-        
-   
-     const listThree = document.createElement('li');
-      const addAnchor = document.createElement('a');
+     addAnchor.appendChild(button);
 
       const textPages = document.createTextNode(i);  
       addAnchor.setAttribute('href', i);
       addAnchor.textContent = '';
       addAnchor.appendChild(textPages);
-      button.appendChild(listThree);
+      listTwo.appendChild(listThree);
       listThree.appendChild(addAnchor);
   
-   
-     
+    
      
       const addClass = document.querySelector('a');
      addClass.className ='active';
-    
+     
      }
-     showPage();
-   
-     const anchorOne = document.getElementsByTagName('a').href=i;
-     anchorOne.addEventListener ('click', (e)=> {
-     if (e.target.tagName === 'a'){
-      showPage = pages.style.display='none';
-      }else{
-      showPage= pages.style.display='block';
-
-     }
-
+     
+     //Add an event listener to each a tag. When they are clicked//
+     //call the showPage function to display the appropriate page//
+     const anchorClick = document.querySelectorAll("a")[0];
+     anchorClick.addEventListener('click', myFunction);
     
-           });
-           
-           return list;
-          }
-        
-        
+   function myFunction(){
+    showPage(list, page);
+   let pages='';
+   const pagesCounts = list.length / 10 + 1;
+   for(let i=1; i< pagesCounts.length; i++){
+   pages+= '<a>i</a>';
+   showPage(list, page).style.display= pages;
+   }
+      
+  }   console.log(myFunction);
+    }
+
+        appendPageLinks();        
 
     
     
