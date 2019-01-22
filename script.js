@@ -51,8 +51,8 @@ const showPage = (list, page) => {
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons
 ***/
-    const appendPageLinks = () =>{
-   
+    const appendPageLinks = (list) =>{
+     const numbPage= Math.ceil(list.length / 10);
      let newLocal = document.getElementsByClassName("page")[0];
      let newDiv = document.createElement('div');
      let textNod = document.createTextNode(''); 
@@ -63,7 +63,7 @@ const showPage = (list, page) => {
      const listTwo = document.createElement('ul');
      newDiv.appendChild(listTwo);
      
-     for (let i=1; i< 7; i++){ 
+     for (let i=1; i< numbPage; i++){ 
       const listThree = document.createElement('li');
       const addAnchor = document.createElement('a');
 
@@ -71,48 +71,28 @@ const showPage = (list, page) => {
      button.textContent='';
      addAnchor.appendChild(button);
 
-      const textPages = document.createTextNode(i);  
-      addAnchor.setAttribute('href', i);
-      addAnchor.textContent = '';
-      addAnchor.appendChild(textPages);
+        
+      addAnchor.href="#";
+      addAnchor.textContent = i;
+      
       listTwo.appendChild(listThree);
       listThree.appendChild(addAnchor);
-  
-    
-     
-      const addClass = document.querySelector('a');
-     addClass.className ='active';
-     
+      addAnchor.className ='active';
+      listThree.addEventListener('click', (e) =>{
+            showPage(list, i);
+      });
+    function myFunction(e) {
+      var removeClass = document.querySelectorAll(".active");
+      for(let i=1; i< removeClass.length;i++)
+      if(removeClass){
+        removeClass.classList.remove("active");
+      } else{
+        e.target.className = "active";
+       }
      }
-     
-     //Add an event listener to each a tag. When they are clicked//
-     //call the showPage function to display the appropriate page//
-     const anchorClick = document.querySelectorAll("a")[0];
-     anchorClick.addEventListener('click', myFunction);
-    
-   function myFunction(){
-    showPage(list, page);
-   let pages='';
-   const pagesCounts = list.length / 10 + 1;
-   for(let i=1; i< pagesCounts.length; i++){
-   pages+= '<a>i</a>';
-   showPage(list, page).style.display= pages;
-   }
-      
-  }   console.log(myFunction);
     }
-
-        appendPageLinks();        
-
-    
-    
-    
-
-   
-
-   
-  
-
-
-  
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+      
+        
+     
+    }
+        appendPageLinks(list);  
