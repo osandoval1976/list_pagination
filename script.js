@@ -81,7 +81,13 @@ const showPage = (list, page) => {
             event.preventDefault();
             showPage(list, i);
       });
-      var removeClass = document.querySelector('.pagination');
+     
+      
+        
+     
+    }
+
+     var removeClass = document.querySelector('.pagination');
     function myFunction(e) {
       
       for(let i=1; i< removeClass.length;i++){
@@ -90,10 +96,6 @@ const showPage = (list, page) => {
       } 
         event.target.classList.add('active');
        }
-     
-    }
-      
-        
      
     }
         appendPageLinks(list);  
