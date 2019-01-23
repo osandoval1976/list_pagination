@@ -77,19 +77,20 @@ const showPage = (list, page) => {
       
       listTwo.appendChild(listThree);
       listThree.appendChild(addAnchor);
-      addAnchor.className ='active';
-      listThree.addEventListener('click', (e) =>{
+      listThree.addEventListener('click', (event) =>{
+            event.preventDefault();
             showPage(list, i);
       });
+      var removeClass = document.querySelector('.pagination');
     function myFunction(e) {
-      var removeClass = document.querySelectorAll(".active");
-      for(let i=1; i< removeClass.length;i++)
-      if(removeClass){
-        removeClass.classList.remove("active");
-      } else{
-        e.target.className = "active";
+      
+      for(let i=1; i< removeClass.length;i++){
+      if(removeClass)
+        removeClass[i].classList.remove('active');
+      } 
+        event.target.classList.add('active');
        }
-     }
+     
     }
       
         
