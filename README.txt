@@ -23,9 +23,9 @@ and more.....
 
 I want to thanks to:
 
-	1-Zany braxton.FSJS Techdegree Moderator. help me in the last part with the events. 
-	2-MisterAj. Techdegree Success team Member. help me with some code errors.
-	3-Matthew Dodd. Student help me a lot with the first part.
+	1-Zany braxton.FSJS Techdegree Moderator, help me in the last part with the events. 
+	2-MisterAj. Techdegree Success team Member, help me with some code errors.
+	3-Matthew Dodd. Student,  help me a lot with the first part.
 
-something we need other eyes to se what is from us.
+something we need other eyes to see what is front of  us.
 
