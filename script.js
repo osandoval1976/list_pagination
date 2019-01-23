@@ -7,52 +7,33 @@ FSJS project 2 - List Filter and Pagination
 
 
 /*** 
-   Add your global variables that store the DOM elements you will 
-   need to reference and/or manipulate. 
-   
-   But be mindful of which variables should be global and which 
-   should be locally scoped to one of the two main functions you're 
-   going to create. A good general rule of thumb is if the variable 
-   will only be used inside of a function, then it can be locally 
-   scoped to that function.
-***/let list = document.getElementsByTagName('li');
-   let page = 1;
-   
-   /*** 
-   Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
-
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument`
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
+   First part:
+   In this part we create  a list of 10 student per page.
+   54/10 = 5.4 +1 = 6.4. the last page only display 4.
 ***/
-const showPage = (list, page) => {
-  const higher = page * 10;
-  const lower = higher - 10;
-  for(let i =0; i < list.length; i++){
-    if(i < lower || i >= higher){
+    let list = document.getElementsByClassName('student-item cf');
+    let page = 1;
+    const showPage = (list, page) => {
+    const higher = page * 10;
+    const lower = higher - 10;
+    for(let i =0; i < list.length; i++){
+      if(i < lower || i >= higher){
     list[i].style.display ='none';
-  }else {
+      }else {
     list[i].style.display ='block';
-   
+     }
   }
-  
-}
           
-}       
+  }       
     showPage(list, page); 
 /*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons
+   Second Part:
+   start manipulating the dom with javascript, creating  and adding elements .
+   event handlers to remove and active class in the pages.
+   showing and hiding elements by dom manipulations.
 ***/
     const appendPageLinks = (list) =>{
-     const numbPage= Math.ceil(list.length / 10);
+     const numbPage= Math.ceil(list.length / 10+1);
      let newLocal = document.getElementsByClassName("page")[0];
      let newDiv = document.createElement('div');
      let textNod = document.createTextNode(''); 
@@ -81,14 +62,10 @@ const showPage = (list, page) => {
             event.preventDefault();
             showPage(list, i);
       });
-     
-      
-        
-     
     }
 
-     var removeClass = document.querySelector('.pagination');
-    function myFunction(e) {
+      var removeClass = document.querySelector('.pagination');
+      function myFunction(e) {
       
       for(let i=1; i< removeClass.length;i++){
       if(removeClass)
@@ -96,6 +73,5 @@ const showPage = (list, page) => {
       } 
         event.target.classList.add('active');
        }
-     
     }
         appendPageLinks(list);  
